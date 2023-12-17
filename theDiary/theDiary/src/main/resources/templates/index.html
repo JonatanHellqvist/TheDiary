@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<h1>Dagbok</h1>
+	<ul>
+		<li th:each="diarypost : ${diary}"><h1 th:text="${diarypost.title}"></h1>
+			<p th:text = "${diarypost.datetime}"></p>
+			<p th:text = "${diarypost.text}"></p> 
+		</li>
+	</ul>
+</body>
+</html>
