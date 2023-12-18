@@ -1,5 +1,7 @@
 package com.theDiary.theDiary;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,7 +16,7 @@ public class Diary {
 	private int id;
 	private String title;
 	private String text;
-	private String datetime;
+	private LocalDateTime datetime;
 
 	public int getId() {
 		return id;
@@ -34,10 +36,10 @@ public class Diary {
 	public void setText(String text) {
 		this.text = text;
 	}
-	public String getDatetime() {
+	public LocalDateTime getDatetime() {
 		return datetime;
 	}
-	public void setDatetime(String datetime) {
+	public void setDatetime(LocalDateTime datetime) {
 		this.datetime = datetime;
 	}
 

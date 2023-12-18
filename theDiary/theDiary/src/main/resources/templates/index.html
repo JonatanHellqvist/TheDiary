@@ -7,6 +7,17 @@
 </head>
 <body>
 	<h1>Dagbok</h1>
+	<div>
+		<form method="post" th:action="@{/new-post}">
+			<p>Title</p>
+			<input type="text" name="title"> 
+			<p>Text</p>
+			<input type="text" name="text">	
+			<p>Date/time</p>
+			<input type="datetime-local" name="datetime">
+			<button>Post</button>
+		</form>
+	</div>
 	<ul>
 		<li th:each="diarypost : ${diary}"><h1 th:text="${diarypost.title}"></h1>
 			<p th:text = "${diarypost.datetime}"></p>
