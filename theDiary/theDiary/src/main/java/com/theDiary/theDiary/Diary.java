@@ -18,6 +18,8 @@ public class Diary {
 	private String text;
 	private LocalDateTime datetime;
 
+	private int deleted;
+
 	public int getId() {
 		return id;
 	}
@@ -41,6 +43,12 @@ public class Diary {
 	}
 	public void setDatetime(LocalDateTime datetime) {
 		this.datetime = datetime;
+	}
+	public int getDeleted() {
+		return deleted;
+	}
+	public void setDeleted(int deleted) {
+		this.deleted = deleted;
 	}
 
 	
