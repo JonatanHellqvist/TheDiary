@@ -3,37 +3,73 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+	<title>My Diary</title>
 </head>
 <body>
-	<h1>Dagbok</h1>
-	<div>
-		<form method="post" th:action="@{/new-post}">
-			<p>Title</p>
-			<input type="text" name="title"> 
-			<p>Text</p>
-			<input type="text" name="text">	
-			<p>Date/time</p>
-			<input type="datetime-local" name="datetime">
-			<button>Post</button>
-		</form>
-	</div>
-	<ul>
-		<li th:each="diarypost : ${diary}">
-			<h1 th:text="${diarypost.title}"></h1>
-			<td th:text = "${#temporals.format(diarypost.datetime, 'yyyy-MM-dd HH:mm:ss')}"></td>
-			<p th:text = "${diarypost.text}"></p> 
-			<a th:href="@{delete(id=${diarypost.id})}">[Delete]</a>
-		</li>
-	</ul>
+		<main>
+			<header>
+				<h1 id="diary-h1">My Diary</h1>
+			</header>
+
+		<div id="diary-post-container">
+			<form method="post" th:action="@{/new-post}" id="diary-post-form">
+				<!-- <p>Date/time</p> -->
+				
+					<h1 id="diary-post-h1">New Diary Post</h1>
+
+					<div id="diary-post-form-title-date">
+						<label for="title" class ="diary-post-form-label">Title</label>
+						<input type="text" name="title" required> 
+						<label for="datetime" class ="diary-post-form-label">Date/time</label>
+						<input type="datetime-local" name="datetime" required>
+					</div>
+				</div>
+					<div id="diary-post-form-text">
+						<label for="text" id ="diary-post-form-label-text">Hello Diary!</label>
+						<textarea id="diary-post-form-text-input" type="text" name="text" required></textarea>	
+					</div>
+
+				<div id="diary-post-form-button">
+					<button id="post-button">Post</button>
+				</div>
+			</form>
+		</div>
+		
+		<div id="diary-posts">
+			<ul>
+				<li th:each="diarypost : ${diary}">
+					<div id="post-title">
+						<h1 th:text="${diarypost.title}"></h1>
+					</div>
+					<div id = "post-date">
+					<td th:text = "${#temporals.format(diarypost.datetime, 'yyyy-MM-dd HH:mm:ss')}"></td>
+					</div>
+					<div id = "post-text">
+					<p th:text = "${diarypost.text}"></p> 
+					</div>
+					<div id = "post-delete">
+					<a th:href="@{delete(id=${diarypost.id})}">[Delete]</a>
+					</div>
+				</li>
+			</ul>
+		</div>
 	<div>
 		<form method = "get" th:action="@{/search-posts}">
-			<p>StartDate:</p>
-			<input type="datetime-local" id="startDate" name="startDate" required>
-			<p>EndDate</p>
-			<input type="datetime-local" id="endDate" name="endDate" required>
-			<button type="submit">Search</button>
+			<div id = "search-start-date">
+				<label for="startDate">StartDate:</label>
+				<input type="datetime-local" id="startDate" name="startDate" required>
+			</div>
+			<div id = "serch-end-date">
+				<label for="endDate">EndDate:</label>
+				<input type="datetime-local" id="endDate" name="endDate" required>
+			</div>
+			<div>
+				<button type="submit">Search</button>
+			</div>
 		</form>
 	</div>
+</main>
 </body>
 </html>
