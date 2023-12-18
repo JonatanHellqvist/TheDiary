@@ -18,8 +18,8 @@ public class DiaryController {
 
 	@GetMapping
 	public String getIndex(Model model){
-
-		model.addAttribute("diary", diaryRepository.findNotDeleted());
+		model.addAttribute("diary",diaryRepository.selectByDateTime(LocalDateTime.now()));
+		// model.addAttribute("diary", diaryRepository.findNotDeleted());
 		return "index";
 	}
 
