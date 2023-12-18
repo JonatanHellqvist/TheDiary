@@ -19,9 +19,11 @@
 		</form>
 	</div>
 	<ul>
-		<li th:each="diarypost : ${diary}"><h1 th:text="${diarypost.title}"></h1>
+		<li th:each="diarypost : ${diary}">
+			<h1 th:text="${diarypost.title}"></h1>
 			<p th:text = "${diarypost.datetime}"></p>
 			<p th:text = "${diarypost.text}"></p> 
+			<a th:href="@{delete(id=${diarypost.id})}">[Delete]</a>
 		</li>
 	</ul>
 </body>
