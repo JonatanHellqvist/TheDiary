@@ -19,6 +19,7 @@ public class DiaryController {
 
 	@GetMapping
 	public String getIndex(Model model){
+
 		model.addAttribute("diary",diaryRepository.selectByDateTime(LocalDateTime.now()));
 		// model.addAttribute("diary", diaryRepository.findNotDeleted());
 		return "index";
@@ -26,6 +27,7 @@ public class DiaryController {
 
 	@GetMapping ("/search-posts")
 	public String searchDiaryPosts (@RequestParam ("startDate") LocalDateTime startDate, @RequestParam ("endDate") LocalDateTime endDate, Model model){
+
 		List <Diary> diaryPosts = diaryRepository.findByDateTime(startDate, endDate);
 		model.addAttribute("diary", diaryPosts);
 
@@ -50,6 +52,7 @@ public class DiaryController {
 
 	@GetMapping("/delete")
 	public String deletePost(@RequestParam int id) {
+		
 		System.out.println("Delete Mapping: " + id);
 		diaryRepository.deleteDiaryPost(id);
 		return "redirect:/";

@@ -21,13 +21,11 @@
 	<ul>
 		<li th:each="diarypost : ${diary}">
 			<h1 th:text="${diarypost.title}"></h1>
-			<p th:text = "${diarypost.datetime}"></p>
+			<td th:text = "${#temporals.format(diarypost.datetime, 'yyyy-MM-dd HH:mm:ss')}"></td>
 			<p th:text = "${diarypost.text}"></p> 
 			<a th:href="@{delete(id=${diarypost.id})}">[Delete]</a>
 		</li>
 	</ul>
-
-
 	<div>
 		<form method = "get" th:action="@{/search-posts}">
 			<p>StartDate:</p>
@@ -35,7 +33,6 @@
 			<p>EndDate</p>
 			<input type="datetime-local" id="endDate" name="endDate" required>
 			<button type="submit">Search</button>
-
 		</form>
 	</div>
 </body>
