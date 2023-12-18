@@ -1,6 +1,7 @@
 package com.theDiary.theDiary;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,6 +22,14 @@ public class DiaryController {
 		model.addAttribute("diary",diaryRepository.selectByDateTime(LocalDateTime.now()));
 		// model.addAttribute("diary", diaryRepository.findNotDeleted());
 		return "index";
+	}
+
+	@GetMapping ("/search-posts")
+	public String searchDiaryPosts (@RequestParam ("startDate") LocalDateTime startDate, @RequestParam ("endDate") LocalDateTime endDate, Model model){
+		List <Diary> diaryPosts = diaryRepository.findByDateTime(startDate, endDate);
+		model.addAttribute("diary", diaryPosts);
+
+		return "/index";
 	}
 
 	@PostMapping("/new-post")
@@ -46,6 +55,23 @@ public class DiaryController {
 		return "redirect:/";
 	}
 
+	// @GetMapping
+	// public String getIndex(@RequestParam (value = "datetime", required = false) LocalDateTime datetime,
+	// 					   @RequestParam (value = "startDate", required = false) LocalDateTime startDate, 
+	// 					   @RequestParam (value = "endDate",required = false) LocalDateTime endDate,
+	// 					   Model model){
+	// 	List<Diary> diaryPosts;
+
+	// 	if (startDate != null && endDate != null) {
+	// 		diaryPosts = diaryRepository.findByDateTime(startDate, endDate);
+	// 	} else {
+	// 		diaryPosts = diaryRepository.selectByDateTime(LocalDateTime.now());
+	// 	}
+
+	// 	model.addAttribute("diary", diaryPosts);
+	// 	diaryPosts = diaryRepository.selectByDateTime(datetime);
+	// 	return "index";
+	// }
 }
 	
 	
