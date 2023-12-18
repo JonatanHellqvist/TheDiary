@@ -19,7 +19,7 @@ public class DiaryController {
 	@GetMapping
 	public String getIndex(Model model){
 
-		model.addAttribute("diary", diaryRepository.findAll());
+		model.addAttribute("diary", diaryRepository.findNotDeleted());
 		return "index";
 	}
 
@@ -42,7 +42,7 @@ public class DiaryController {
 	@GetMapping("/delete")
 	public String deletePost(@RequestParam int id) {
 		System.out.println("Delete Mapping: " + id);
-		diaryRepository.deleteById(id);
+		diaryRepository.deleteDiaryPost(id);
 		return "redirect:/";
 	}
 
