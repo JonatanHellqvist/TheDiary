@@ -39,7 +39,14 @@ public class DiaryController {
 		return "redirect:/";
 	}
 
+	@GetMapping("/delete")
+	public String deletePost(@RequestParam int id) {
+		System.out.println("Delete Mapping: " + id);
+		diaryRepository.deleteById(id);
+		return "redirect:/";
 	}
+
+}
 	
 	
 	
