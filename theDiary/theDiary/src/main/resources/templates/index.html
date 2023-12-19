@@ -13,27 +13,7 @@
 		<main>
 			<header>
 				<h1 id="diary-h1">My Diary</h1>
-				<div id="header-links">
-					
-						<form id="diary-search-posts" method = "get" th:action="@{/search-posts}">
-							<div id = "search-title">
-								<h1>Search for posts</h1>
-							</div>
-							<div id = "search-start-date">
-								<label for="startDate">StartDate:</label>
-								<input type="datetime-local" id="startDate" name="startDate" required>
-							</div>
-							<div id = "search-end-date">
-								<label for="endDate">EndDate:</label>
-								<input type="datetime-local" id="endDate" name="endDate" required>
-							</div>
-							<div id = "search-button">
-								<button type="submit">Search</button>
-							</div>
-						</form>
-					
-
-				</div>
+				
 			</header>
 
 		<!-- <div class="diary-post-container"> -->
@@ -56,8 +36,42 @@
 					<div id="diary-post-text">
 						<textarea id="diary-post-text-input" type="text" name="text" required></textarea>	
 					</div>
-
 			</form>
+			<div id="button-bar">
+
+				<!---SEARCH/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/-->
+
+					<form id="diary-search-posts" method = "get" th:action="@{/search-posts}">
+						<div id = "search-title">
+							<h1>Search for posts</h1>
+						</div>
+						<div id = "search-start-date">
+							<label for="startDate">StartDate:</label>
+							<input type="datetime-local" id="startDate" name="startDate" required>
+						</div>
+						<div id = "search-end-date">
+							<label for="endDate">EndDate:</label>
+							<input type="datetime-local" id="endDate" name="endDate" required>
+						</div>
+						<div id = "search-button">
+							<button type="submit">Search</button>
+						</div>
+					</form>
+
+				<!---SEARCH/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/-->
+
+				<!---SHOW BUTTONS/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/-->
+					<div id="show-buttons">
+						<h1>Show Posts of your choice</h1>
+						<button>Show All posts</button>
+						<button>Show Todays posts</button>
+						<button>Show Current posts</button>
+					</div>
+
+				<!---SEARCH/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/-->
+				
+
+			</div>
 		<!-- </div> -->
 		
 		<div id="diary-posts">
