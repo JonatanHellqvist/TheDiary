@@ -10,6 +10,7 @@ body {
 	padding: 0;
 	margin-top: 0;
 	
+	
 }
 main {
 	min-width: 1000px;
@@ -23,9 +24,18 @@ main {
 	/* display: grid;
 	justify-content: center; */
 	
+	
 }
 li {
 	list-style: none;
+}
+ul {
+	margin:0;
+	padding:0;
+	display: flex;
+    flex-wrap: wrap; 
+	justify-content: center;
+    align-items: center;
 }
 
 #diary-h1 {
@@ -39,21 +49,24 @@ li {
 }
 header {
 	text-align: center;
-	
 }
-
-/*************************************************************************************FORM*/
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*FORM*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
 
 #diary-post-form {
 	width: 700px;
 	height: 500px;
 	display: grid;
 	grid-template-columns: 50% 50%;
-	border: 1px solid black;
+	border: 5px solid rgb(112, 93, 69);
 	border-radius: 5px;
 	/* justify-content: center; */
-	background-color: rgb(168, 151, 131);
-	margin: 50px auto 0 auto;
+	/* background-color: rgb(168, 151, 131); */
+	background-image: url("images/note.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	margin: 10px auto 0 auto;
 	font-family: 'Annie Use Your Telescope';
 
 }
@@ -61,18 +74,19 @@ header {
 /*'''''/container för post*/
 .diary-post {
 	background-color: bisque;
-	border: 1px solid black;
+	border: 2px solid black;
 	display: grid;
 	grid-template-rows: repeat(4,auto);
 	align-items: center;
 	justify-items: center;
 	align-self: center;
 	margin: 10px;
-	width: 95%;
+	width: 90%;
 	height: 95%;
 	gap: 5px;
 	border-radius: 5px;
 	/* grid-area: diary-post; */
+	
 }
 
 #diary-post-text {
@@ -83,11 +97,13 @@ header {
 	
 }
 #diary-post-text-input {
-	margin:10px;
+	/* margin:10px; */
+	margin-left:32px;
 	justify-self: center;
-	width: 95%;
+	width: 88%;
 	height: 95%;
 	box-sizing: border-box;
+	border: 2px solid black;
 	border-radius: 5px;
 	resize: none;
 	padding: 25px;
@@ -114,11 +130,14 @@ header {
 	/* border-radius: 5px; */
 	padding: 5px;
 	width: 90%;
+	
 }
 #diary-post-title input {
 	float: right;
 	height: 30px;
 	width: 170px;
+	font-size: 20px;
+	font-family: 'Annie Use Your Telescope';
 }
 #diary-post-date{
 	
@@ -134,12 +153,15 @@ header {
 	float: right;
 	height: 30px;
 	width: 173px;
+	font-size: 20px;
+	font-family: 'Annie Use Your Telescope';
 }
 #diary-post-button {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	justify-items: center;
+	
 }
 #post-button{
 	width: 122px;
@@ -147,17 +169,79 @@ header {
 	border: 1px solid black;
 	margin: 0;
 	padding: 5px;
-	font-size: 17px;
+	font-size: 20px;
 	border-radius: 2px;
+	font-family: 'Annie Use Your Telescope';
 }
 
 
 
-/*******************************************************************************form*/
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*@/FORM*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*UTSKRIFT AV POSTS*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+
+
+#diary-posts{
+	border: 1px solid black;
+	margin: 10px;
+	font-family: 'Annie Use Your Telescope';
+	display: grid;
+	background-color: rgb(247, 232, 213);
+	border-radius: 5px;
+	
+	
+	/* grid-template-columns: 1fr 1fr;
+	grid-template-rows: repeat(auto-fill,minmax(0, 1fr)); */
+	
+	
+}
+#diary-posts li{
+	border: 1px solid black;
+	background-color: white;
+	padding: 10px;
+	padding-top: 0;
+	width: 400px;
+    /* height: 200px; */
+    margin: 30px;
+	text-align: center;
+	font-weight: bolder;
+	border-radius: 5px;
+}
+
+#post-title h1{
+	margin: 0;
+	border-bottom: 1px solid black;
+}
+
+#post-date {
+	border-bottom: 1px solid black;
+}
+
+#post-text {
+	border-bottom: 1px solid black;
+}
+
+
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*SKRÄP*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
 /* #diary-posts li{
 	border-bottom: 1px solid black;
 	margin:0;
