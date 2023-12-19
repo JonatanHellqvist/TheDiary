@@ -37,6 +37,7 @@ ul {
 	justify-content: center;
     align-items: center;
 }
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
 
 #diary-h1 {
 	font-size: 50px;
@@ -50,6 +51,59 @@ ul {
 header {
 	text-align: center;
 }
+#header-links {
+	/* display: flex; */
+	height: 100px;
+	background-color: aquamarine;
+	border-bottom: 1px solid black;
+}
+#diary-search-posts {
+	display: grid;
+	grid-template-areas: 
+	"left middle right";
+	grid-template-columns: 250px 250px 100px;
+	grid-template-rows: 50px 50px;
+	height: 100px;
+	width: 600px;
+	align-items: center;
+	background-color: rgb(168, 151, 131);
+	border-bottom: 2px solid black;
+	
+}
+#search-title {
+	width: 600px;
+	height: 50px;
+	grid-row:1;
+	margin:0;
+}
+#search-title h1{
+	
+	margin:0;
+	margin-top:10px;
+	padding:0;
+	
+}
+#search-start-date {
+	grid-area: left;
+	height: 20px;
+	grid-row:2;
+}
+
+
+#search-end-date {
+	grid-area: middle;
+	height: 20px;
+	grid-row:2;
+	
+}
+
+#search-button {
+	grid-area: right;
+	justify-content: center;
+	justify-self: center;
+	grid-row:2;
+	
+}
 /*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
 /*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*FORM*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
 
@@ -58,7 +112,7 @@ header {
 	height: 500px;
 	display: grid;
 	grid-template-columns: 50% 50%;
-	border: 5px solid rgb(112, 93, 69);
+	border: 5px solid rgb(131, 114, 94);
 	border-radius: 5px;
 	/* justify-content: center; */
 	/* background-color: rgb(168, 151, 131); */
