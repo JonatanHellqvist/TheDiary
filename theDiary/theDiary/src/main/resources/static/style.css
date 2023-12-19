@@ -47,33 +47,49 @@ ul {
 	border-bottom: 1px solid black;
 	background-color: rgb(168, 151, 131);
 	font-family: 'Annie Use Your Telescope';
+	border-bottom: 2px solid black;
 }
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
 header {
 	text-align: center;
 }
-#header-links {
-	/* display: flex; */
+#button-bar {
+	margin-top: 10px;
+	display: grid;
+	grid-template-columns: auto auto;
 	height: 100px;
-	background-color: aquamarine;
+	background-color:  rgb(168, 151, 131);
 	border-bottom: 1px solid black;
+	font-family: 'Annie Use Your Telescope';
+	border-top: 2px solid black;
+	border-bottom: 2px solid black;
 }
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-------SEARCH----@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+
 #diary-search-posts {
 	display: grid;
-	grid-template-areas: 
+	grid-template-areas:
+	"title title title" 
 	"left middle right";
-	grid-template-columns: 250px 250px 100px;
+	grid-template-columns: auto auto auto;
+	/* grid-template-columns: 250px 250px 100px; */
 	grid-template-rows: 50px 50px;
 	height: 100px;
-	width: 600px;
+	/* width: 600px; */
 	align-items: center;
-	background-color: rgb(168, 151, 131);
-	border-bottom: 2px solid black;
+	/* background-color: rgb(168, 151, 131);
+	border-bottom: 2px solid black; */
 	
 }
 #search-title {
-	width: 600px;
+	/* width: 600px; */
+	grid-area: title;
 	height: 50px;
 	grid-row:1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	margin:0;
 }
 #search-title h1{
@@ -87,6 +103,7 @@ header {
 	grid-area: left;
 	height: 20px;
 	grid-row:2;
+	
 }
 
 
@@ -104,7 +121,52 @@ header {
 	grid-row:2;
 	
 }
-/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-/Search-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-Show Current-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+
+
+#show-buttons {
+	/* background-color: rgb(168, 151, 131); */
+	display: grid;
+	/* width: 600px; */
+	/* margin-top: 60px; */
+	/* background-color: blueviolet; */
+	/* grid-template-columns: 200px 200px 200px; */
+	grid-template-areas:
+	"title title title" 
+	"button button button";
+	grid-template-columns: auto auto auto;
+	grid-template-rows: 50px 50px;
+	height: 100px;
+	align-self: center;
+	justify-content: center;
+	padding:0;
+	
+}
+#show-buttons button{
+	/* background-color: rgb(168, 151, 131); */
+	height: 30px;
+	width: 140px;
+	grid-row: 2;
+	justify-content: center;
+	justify-self: center;
+	margin:10px;
+	border-radius: 5px;
+}
+
+#show-buttons h1{
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	grid-area: title;
+	grid-row: 1;
+	margin: 0;
+	margin-top: 10px;
+}
+
+
+
+
 /*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*FORM*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
 
 #diary-post-form {
@@ -112,7 +174,7 @@ header {
 	height: 500px;
 	display: grid;
 	grid-template-columns: 50% 50%;
-	border: 5px solid rgb(131, 114, 94);
+	border: 2px solid black;
 	border-radius: 5px;
 	/* justify-content: center; */
 	/* background-color: rgb(168, 151, 131); */
