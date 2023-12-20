@@ -12,17 +12,20 @@ import jakarta.transaction.Transactional;
 
 public interface DiaryRepository extends CrudRepository <Diary,Integer> {
 
-	// @Query ("SELECT d FROM Diary d WHERE d.deleted = 0")
-	// List<Diary> findNotDeleted();
-	
 	@Transactional
 	@Modifying
 	@Query("UPDATE Diary d SET d.deleted = 1 WHERE d.id = ?1")
 	int deleteDiaryPost(int id);
 
-	@Query ("SELECT d FROM Diary d WHERE d.datetime <= :currentDateTime And d.deleted = 0")
+	@Query ("SELECT d FROM Diary d WHERE d.datetime <= :currentDateTime AND d.deleted = 0")
 	List<Diary> selectByDateTime(@Param("currentDateTime") LocalDateTime dateTime);
 
-	@Query ("SELECT d FROM Diary d WHERE d.datetime BETWEEN :startDate AND :endDate AND d.deleted = 0")
+	@Query ("SELECT d FROM Diary d WHERE d.datetime BETWEEN :startDate AND :endDate AND d.deleted = 0 ORDER BY d.datetime ASC")
 	List<Diary> findByDateTime(@Param("startDate") LocalDateTime startdate, @Param ("endDate") LocalDateTime endDate);
+
+	@Query ("SELECT d FROM Diary d WHERE d.deleted = 0 ORDER BY d.datetime ASC")
+	List<Diary> selectAllNotDeleted();
+
+	@Query ("SELECT d FROM Diary d WHERE d.datetime >= :startOfToday AND d.datetime < :startOfTomorrow AND d.deleted = 0")
+	List<Diary> selectByCurrentDateTime(@Param("startOfToday") LocalDateTime startOfToday, @Param("startOfTomorrow") LocalDateTime startOfTomorrow);
 }

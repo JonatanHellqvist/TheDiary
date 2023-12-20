@@ -13,7 +13,6 @@
 		<main>
 			<header>
 				<h1 id="diary-h1">My Diary</h1>
-				
 			</header>
 
 		<!-- <div class="diary-post-container"> -->
@@ -63,9 +62,10 @@
 				<!---SHOW BUTTONS/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/-->
 					<div id="show-buttons">
 						<h1>Show Posts of your choice</h1>
-						<button>Show All posts</button>
-						<button>Show Todays posts</button>
-						<button>Show Current posts</button>
+						<a class="button-class" th:href="@{/get-all-posts}">Show All posts</a>
+						<a class="button-class" th:href="@{/get-todays-posts(currentDateTime=${#temporals.createNow()})}">Show Todays posts</a>
+						<a class="button-class" th:href="@{/}">Show Current posts</a>
+						
 					</div>
 
 				<!---SEARCH/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/-->
@@ -81,7 +81,7 @@
 						<h1 th:text="${diarypost.title}"></h1>
 					</div>
 					<div id = "post-date">
-					<td th:text = "${#temporals.format(diarypost.datetime, 'yyyy-MM-dd HH:mm:ss')}"></td>
+					<td th:text = "${#temporals.format(diarypost.datetime, 'yyyy-MM-dd HH:mm')}"></td>
 					</div>
 					<div id = "post-text">
 					<p th:text = "${diarypost.text}"></p> 
