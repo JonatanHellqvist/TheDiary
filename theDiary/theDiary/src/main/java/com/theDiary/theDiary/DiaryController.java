@@ -39,8 +39,6 @@ public class DiaryController {
 		return "index";
 	}
 	
-
-
 	@GetMapping ("/search-posts")
 	public String searchDiaryPosts (@RequestParam ("startDate") LocalDateTime startDate, @RequestParam ("endDate") LocalDateTime endDate, Model model){
 		List <Diary> diaryPosts = diaryRepository.findByDateTime(startDate, endDate);

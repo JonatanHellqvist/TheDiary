@@ -37,6 +37,12 @@ ul {
 	justify-content: center;
     align-items: center;
 }
+a:hover {
+	background-color: yellow;
+  }
+button{
+	cursor: pointer;
+}
 /*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
 
 #diary-h1 {
@@ -56,7 +62,7 @@ header {
 #button-bar {
 	margin-top: 10px;
 	display: grid;
-	grid-template-columns: auto auto;
+	grid-template-columns: 60% 40%;
 	height: 100px;
 	background-color:  rgb(168, 151, 131);
 	border-bottom: 1px solid black;
@@ -78,8 +84,18 @@ header {
 	height: 100px;
 	/* width: 600px; */
 	align-items: center;
+	font-weight: bolder;
 	/* background-color: rgb(168, 151, 131);
 	border-bottom: 2px solid black; */
+	
+}
+#diary-search-posts input{
+	height:60%;
+	width: 50%;
+	margin-left: 5px;
+	font-size: 15px;
+	font-weight: bolder;
+	font-family: 'Annie Use Your Telescope';
 	
 }
 #search-title {
@@ -100,26 +116,53 @@ header {
 	
 }
 #search-start-date {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	grid-area: left;
-	height: 20px;
+	height: 100%;
 	grid-row:2;
+	
 	
 }
 
 
 #search-end-date {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	grid-area: middle;
-	height: 20px;
+	height: 100%;
 	grid-row:2;
 	
 }
 
 #search-button {
+	display: flex;
+	align-items: center;
+	justify-content: left;
 	grid-area: right;
-	justify-content: center;
-	justify-self: center;
 	grid-row:2;
-	
+}
+#search-button button {
+	background-color: antiquewhite;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	height: 30px;
+	width: 100px;
+	grid-row: 2;
+	/* justify-content: center; */
+	/* justify-self: center; */
+	margin:10px;
+	margin-left: 15px;
+	border-radius: 5px;
+	font-family: 'Annie Use Your Telescope';
+	font-weight: bolder;
+	font-size: 25px;
+}
+#search-button button:hover {
+	background-color: yellow;
 }
 /*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-/Search-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
 /*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-Show Current-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
@@ -141,6 +184,8 @@ header {
 	align-self: center;
 	justify-content: center;
 	padding:0;
+	font-weight: bolder;
+	
 	
 }
 /* #show-buttons button{
@@ -159,12 +204,19 @@ header {
 	justify-content: center;
 	display: flex;
 	height: 30px;
-	width: 140px;
+	width: 100px;
 	grid-row: 2;
 	/* justify-content: center; */
 	/* justify-self: center; */
 	margin:10px;
+	margin-left: 15px;
 	border-radius: 5px;
+	text-decoration: none;
+	color: black;
+	border: 2px outset black;
+	/* border-style: outset;
+	border-color: black; */
+	
 }
 
 #show-buttons h1{
@@ -175,6 +227,7 @@ header {
 	grid-row: 1;
 	margin: 0;
 	margin-top: 10px;
+
 }
 
 
@@ -265,7 +318,7 @@ header {
 	float: right;
 	height: 30px;
 	width: 170px;
-	font-size: 20px;
+	font-size: 20px;	
 	font-family: 'Annie Use Your Telescope';
 }
 #diary-post-date{
@@ -294,13 +347,17 @@ header {
 }
 #post-button{
 	width: 122px;
-	background-color: rgb(248, 209, 162);
-	border: 1px solid black;
+	background-color: antiquewhite;
+	/* border: 1px solid black; */
 	margin: 0;
 	padding: 5px;
 	font-size: 20px;
-	border-radius: 2px;
+	border-radius: 5px;
 	font-family: 'Annie Use Your Telescope';
+	font-weight: bolder;
+}
+#post-button:hover {
+	background-color: yellow;
 }
 
 
@@ -310,11 +367,12 @@ header {
 
 
 #diary-posts{
-	border: 1px solid black;
+	/* border: 1px solid black; */
 	margin: 10px;
+	
 	font-family: 'Annie Use Your Telescope';
 	display: grid;
-	background-color: rgb(247, 232, 213);
+	/* background-color: bisque; */
 	border-radius: 5px;
 	
 	
@@ -328,6 +386,7 @@ header {
 	background-color: white;
 	padding: 10px;
 	padding-top: 0;
+	padding-bottom:0;
 	width: 400px;
     /* height: 200px; */
     margin: 30px;
@@ -347,6 +406,31 @@ header {
 
 #post-text {
 	border-bottom: 1px solid black;
+}
+#post-delete {
+	display: flex;
+	justify-content: right;
+	
+}
+#post-delete a{
+	background-color: antiquewhite;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	height: 30px;
+	width: 100px;
+	grid-row: 2;
+	/* justify-content: center; */
+	/* justify-self: center; */
+	margin:5px;
+	margin-left: 15px;
+	margin-right: 0px;
+	border-radius: 5px;
+	text-decoration: none;
+	color: black;
+	border: 2px outset black;
+	/* border-style: outset;
+	border-color: black; */
 }
 
 
