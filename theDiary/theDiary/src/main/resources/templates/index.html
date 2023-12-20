@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="style.css">
 	<link href='https://fonts.googleapis.com/css?family=Annie Use Your Telescope' rel='stylesheet'>
+	<script src="script.js"></script>
 	<title>My Diary</title>
 </head>
 <body>
@@ -33,7 +34,7 @@
 						<textarea id="diary-post-text-input" type="text" name="text" required></textarea>	
 					</div>
 		</form>
-			
+	
 		<div id="button-bar">
 			<form id="diary-search-posts" method = "get" th:action="@{/search-posts}">
 				<div id = "search-title">
@@ -73,11 +74,35 @@
 					<div id="post-text">
 						<p th:text="${diarypost.text}"></p> 
 					</div>
-					<div id="post-delete">
+					<div id="post-delete-edit">
+					
+						<a th:attr="onclick='openEditPopup(\'' + 
+						${diarypost.id} + '\', \'' + 
+						${diarypost.title} + '\', \'' + 
+						${diarypost.text} + '\', \'' + 
+						${diarypost.datetime} + 
+						'\')'">Edit Post</a>
+					
+
 						<a th:href="@{delete(id=${diarypost.id})}">Delete Post</a>
 					</div>
 				</li>
 			</ul>
+		</div>
+		<!-- popop -->
+		<div class="overlay" id="overlay" onclick="closeEditPopup()"></div>
+		<div class="popup" id="editPopup">
+    		<h1>Edit Post</h1>
+    		<form action="/edit-post" method="post">
+        		<input type="hidden" id="editId" name="id" />
+					Title: <input type="text" id="editTitle" name="title" /><br>
+					Text: <textarea id="editText" name="text"></textarea><br>
+					Datetime: <input type="datetime-local" id="editDatetime" name="datetime" /><br>
+        		<input type="submit" value="Save" />
+        		<button type="button" onclick="closeEditPopup()">Cancel</button>
+    		</form>
+		</div>
+		  <!-- popop -->
 		</div>
 	</main>
 </body>

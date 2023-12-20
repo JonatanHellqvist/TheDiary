@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -66,6 +67,12 @@ public class DiaryController {
 		
 		System.out.println("Delete Mapping: " + id);
 		diaryRepository.deleteDiaryPost(id);
+		return "redirect:/";
+	}
+
+	@PostMapping("/edit-post")
+	public String editPost(@ModelAttribute Diary editedDiaryPost) {
+		diaryRepository.editDiaryPost(editedDiaryPost.getId(),editedDiaryPost.getTitle(),editedDiaryPost.getText(), editedDiaryPost.getDatetime());
 		return "redirect:/";
 	}
 }
