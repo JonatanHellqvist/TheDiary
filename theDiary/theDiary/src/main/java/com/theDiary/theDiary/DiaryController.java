@@ -1,6 +1,7 @@
 package com.theDiary.theDiary;
 
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,18 +20,31 @@ public class DiaryController {
 
 	@GetMapping
 	public String getIndex(Model model){
-
 		model.addAttribute("diary",diaryRepository.selectByDateTime(LocalDateTime.now()));
 		// model.addAttribute("diary", diaryRepository.findNotDeleted());
 		return "index";
 	}
 
+	@GetMapping("/get-all-posts")
+	public String getAllPosts(Model model) {
+		model.addAttribute("diary", diaryRepository.selectAllNotDeleted());
+		return "index";
+	}
+
+	@GetMapping("/get-todays-posts")
+	public String getTodaysPosts(Model model) {
+		LocalDateTime startOfToday = LocalDateTime.now().with(LocalTime.MIN);
+		LocalDateTime startOfTomorrow = startOfToday.plusDays(1);
+		model.addAttribute("diary", diaryRepository.selectByCurrentDateTime(startOfToday,startOfTomorrow));
+		return "index";
+	}
+	
+
+
 	@GetMapping ("/search-posts")
 	public String searchDiaryPosts (@RequestParam ("startDate") LocalDateTime startDate, @RequestParam ("endDate") LocalDateTime endDate, Model model){
-
 		List <Diary> diaryPosts = diaryRepository.findByDateTime(startDate, endDate);
 		model.addAttribute("diary", diaryPosts);
-
 		return "/index";
 	}
 
