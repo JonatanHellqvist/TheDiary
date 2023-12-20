@@ -62,9 +62,9 @@
 				<!---SHOW BUTTONS/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/-->
 					<div id="show-buttons">
 						<h1>Show Posts of your choice</h1>
-						<a class="button-class" th:href="@{/get-all-posts}">Show All posts</a>
-						<a class="button-class" th:href="@{/get-todays-posts(currentDateTime=${#temporals.createNow()})}">Show Todays posts</a>
-						<a class="button-class" th:href="@{/}">Show Current posts</a>
+						<a class="button-class" th:href="@{/get-all-posts}">All Posts</a>
+						<a class="button-class" th:href="@{/get-todays-posts(currentDateTime=${#temporals.createNow()})}">Todays Posts</a>
+						<a class="button-class" th:href="@{/}">Current Posts</a>
 						
 					</div>
 
@@ -87,7 +87,7 @@
 					<p th:text = "${diarypost.text}"></p> 
 					</div>
 					<div id = "post-delete">
-					<a th:href="@{delete(id=${diarypost.id})}">[Delete]</a>
+					<a th:href="@{delete(id=${diarypost.id})}">Delete Post</a>
 					</div>
 				</li>
 			</ul>
