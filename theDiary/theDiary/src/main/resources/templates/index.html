@@ -4,75 +4,62 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
-	<link href='https://fonts.googleapis.com/css?family=Allan' rel='stylesheet'>
 	<link href='https://fonts.googleapis.com/css?family=Annie Use Your Telescope' rel='stylesheet'>
 	<title>My Diary</title>
 </head>
 <body>
-		<main>
-			<header>
-				<h1 id="diary-h1">My Diary</h1>
-			</header>
-
-		<!-- <div class="diary-post-container"> -->
-			<form method="post" th:action="@{/new-post}" id="diary-post-form">
-					
-					<div class="diary-post">
-						<h1 id="diary-post-h1">Hello Diary</h1>
-						<div id="diary-post-title">
-							<label for="title">Title:</label>
-							<input type="text" name="title" required> 
-						</div>
-						<div id="diary-post-date">
-							<label for="datetime">Date/time:</label>
-							<input type="datetime-local" name="datetime" required>
-						</div>
-						<div id="diary-post-button">
-							<button id="post-button">New Post</button>
-						</div>
-					</div>
+	<main>
+		
+		<header>
+			<h1 id="diary-h1">My Diary</h1>
+		</header>
+		
+		<form method="post" th:action="@{/new-post}" id="diary-post-form">
+			<div class="diary-post">
+				<h1 id="diary-post-h1">Hello Diary</h1>
+				<div id="diary-post-title">
+					<label for="title">Title:</label>
+					<input type="text" name="title" required> 
+				</div>
+				<div id="diary-post-date">
+					<label for="datetime">Date/time:</label>
+					<input type="datetime-local" name="datetime" required>
+				</div>
+				<div id="diary-post-button">
+					<button id="post-button">New Post</button>
+				</div>
+			</div>
 					<div id="diary-post-text">
 						<textarea id="diary-post-text-input" type="text" name="text" required></textarea>	
 					</div>
+		</form>
+			
+		<div id="button-bar">
+			<form id="diary-search-posts" method = "get" th:action="@{/search-posts}">
+				<div id = "search-title">
+					<h1>Search for posts</h1>
+				</div>
+				<div id = "search-start-date">
+					<label for="startDate">StartDate:</label>
+					<input type="datetime-local" id="startDate" name="startDate" required>
+				</div>
+				<div id = "search-end-date">
+					<label for="endDate">EndDate:</label>
+					<input type="datetime-local" id="endDate" name="endDate" required>
+				</div>
+				<div id = "search-button">
+					<button type="submit">Search</button>
+				</div>
 			</form>
-			<div id="button-bar">
 
-				<!---SEARCH/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/-->
-
-					<form id="diary-search-posts" method = "get" th:action="@{/search-posts}">
-						<div id = "search-title">
-							<h1>Search for posts</h1>
-						</div>
-						<div id = "search-start-date">
-							<label for="startDate">StartDate:</label>
-							<input type="datetime-local" id="startDate" name="startDate" required>
-						</div>
-						<div id = "search-end-date">
-							<label for="endDate">EndDate:</label>
-							<input type="datetime-local" id="endDate" name="endDate" required>
-						</div>
-						<div id = "search-button">
-							<button type="submit">Search</button>
-						</div>
-					</form>
-
-				<!---SEARCH/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/-->
-
-				<!---SHOW BUTTONS/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/-->
-					<div id="show-buttons">
-						<h1>Show Posts of your choice</h1>
-						<a class="button-class" th:href="@{/get-all-posts}">All Posts</a>
-						<a class="button-class" th:href="@{/get-todays-posts(currentDateTime=${#temporals.createNow()})}">Todays Posts</a>
-						<a class="button-class" th:href="@{/}">Current Posts</a>
-						
-					</div>
-
-				<!---SEARCH/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/-->
-				
-
+			<div id="show-buttons">
+				<h1>Show Posts of your choice</h1>
+				<a class="button-class" th:href="@{/get-all-posts}">All Posts</a>
+				<a class="button-class" th:href="@{/get-todays-posts(currentDateTime=${#temporals.createNow()})}">Todays Posts</a>
+				<a class="button-class" th:href="@{/}">Current Posts</a>
 			</div>
-		<!-- </div> -->
+		</div>
+		
 		
 		<div id="diary-posts">
 			<ul>
@@ -80,19 +67,18 @@
 					<div id="post-title">
 						<h1 th:text="${diarypost.title}"></h1>
 					</div>
-					<div id = "post-date">
-					<td th:text = "${#temporals.format(diarypost.datetime, 'yyyy-MM-dd HH:mm')}"></td>
+					<div id="post-date">
+						<td th:text="${#temporals.format(diarypost.datetime, 'yyyy-MM-dd HH:mm')}"></td>
 					</div>
-					<div id = "post-text">
-					<p th:text = "${diarypost.text}"></p> 
+					<div id="post-text">
+						<p th:text="${diarypost.text}"></p> 
 					</div>
-					<div id = "post-delete">
-					<a th:href="@{delete(id=${diarypost.id})}">Delete Post</a>
+					<div id="post-delete">
+						<a th:href="@{delete(id=${diarypost.id})}">Delete Post</a>
 					</div>
 				</li>
 			</ul>
 		</div>
-	
-</main>
+	</main>
 </body>
 </html>

@@ -28,4 +28,9 @@ public interface DiaryRepository extends CrudRepository <Diary,Integer> {
 
 	@Query ("SELECT d FROM Diary d WHERE d.datetime >= :startOfToday AND d.datetime < :startOfTomorrow AND d.deleted = 0")
 	List<Diary> selectByCurrentDateTime(@Param("startOfToday") LocalDateTime startOfToday, @Param("startOfTomorrow") LocalDateTime startOfTomorrow);
+
+	// @Transactional
+	// @Modifying
+	// @Query("UPDATE diary d SET d.text = :newText WHERE d.id = ?1")
+	// String editDiaryPost(String text);
 }

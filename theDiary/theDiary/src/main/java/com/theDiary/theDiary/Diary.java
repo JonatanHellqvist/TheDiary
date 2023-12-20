@@ -2,8 +2,6 @@ package com.theDiary.theDiary;
 
 import java.time.LocalDateTime;
 
-// import org.springframework.format.annotation.DateTimeFormat;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,7 +16,7 @@ public class Diary {
 	private int id;
 	private String title;
 	private String text;
-	// @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+
 	private LocalDateTime datetime;
 
 	private int deleted;
@@ -53,6 +51,4 @@ public class Diary {
 	public void setDeleted(int deleted) {
 		this.deleted = deleted;
 	}
-
-	
 }

@@ -20,19 +20,21 @@ public class DiaryController {
 
 	@GetMapping
 	public String getIndex(Model model){
+		
 		model.addAttribute("diary",diaryRepository.selectByDateTime(LocalDateTime.now()));
-		// model.addAttribute("diary", diaryRepository.findNotDeleted());
 		return "index";
 	}
 
 	@GetMapping("/get-all-posts")
 	public String getAllPosts(Model model) {
+		
 		model.addAttribute("diary", diaryRepository.selectAllNotDeleted());
 		return "index";
 	}
 
 	@GetMapping("/get-todays-posts")
 	public String getTodaysPosts(Model model) {
+		
 		LocalDateTime startOfToday = LocalDateTime.now().with(LocalTime.MIN);
 		LocalDateTime startOfTomorrow = startOfToday.plusDays(1);
 		model.addAttribute("diary", diaryRepository.selectByCurrentDateTime(startOfToday,startOfTomorrow));
@@ -41,6 +43,7 @@ public class DiaryController {
 	
 	@GetMapping ("/search-posts")
 	public String searchDiaryPosts (@RequestParam ("startDate") LocalDateTime startDate, @RequestParam ("endDate") LocalDateTime endDate, Model model){
+		
 		List <Diary> diaryPosts = diaryRepository.findByDateTime(startDate, endDate);
 		model.addAttribute("diary", diaryPosts);
 		return "/index";
@@ -48,10 +51,6 @@ public class DiaryController {
 
 	@PostMapping("/new-post")
 	public String newPost(@RequestParam("title") String title,@RequestParam("text") String text, @RequestParam("datetime") LocalDateTime datetime){
-
-		System.out.println("new title: " + title);
-		System.out.println("new text: " + text);
-		System.out.println("new datetime: " + datetime);
 
 		Diary diarypost = new Diary();
 		diarypost.setDatetime(datetime);
@@ -61,7 +60,7 @@ public class DiaryController {
 
 		return "redirect:/";
 	}
-
+	
 	@GetMapping("/delete")
 	public String deletePost(@RequestParam int id) {
 		
@@ -69,24 +68,6 @@ public class DiaryController {
 		diaryRepository.deleteDiaryPost(id);
 		return "redirect:/";
 	}
-
-	// @GetMapping
-	// public String getIndex(@RequestParam (value = "datetime", required = false) LocalDateTime datetime,
-	// 					   @RequestParam (value = "startDate", required = false) LocalDateTime startDate, 
-	// 					   @RequestParam (value = "endDate",required = false) LocalDateTime endDate,
-	// 					   Model model){
-	// 	List<Diary> diaryPosts;
-
-	// 	if (startDate != null && endDate != null) {
-	// 		diaryPosts = diaryRepository.findByDateTime(startDate, endDate);
-	// 	} else {
-	// 		diaryPosts = diaryRepository.selectByDateTime(LocalDateTime.now());
-	// 	}
-
-	// 	model.addAttribute("diary", diaryPosts);
-	// 	diaryPosts = diaryRepository.selectByDateTime(datetime);
-	// 	return "index";
-	// }
 }
 	
 	
