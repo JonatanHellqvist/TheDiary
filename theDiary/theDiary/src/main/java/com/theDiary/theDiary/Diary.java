@@ -18,7 +18,7 @@ public class Diary {
 	private String text;
 
 	private LocalDateTime datetime;
-
+	
 	private int deleted;
 
 	public int getId() {
