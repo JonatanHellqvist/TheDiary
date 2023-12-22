@@ -62,7 +62,7 @@ header {
 	border-bottom: 2px solid black;
 }
 
-/*@@@@@@@@@@@-------SEARCH----@@@@@@@@@@@@*/
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*SEARCH*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
 
 #diary-search-posts {
 	display: grid;
@@ -140,8 +140,8 @@ header {
 	background-color: yellow;
 }
 
-/*@@@@@@@@@@@-/Search-@@@@@@@@@@@@@@@*/
-/*@@@@@@@@@@@-Show Current-@@@@@@@@@@*/
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-/Search-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-Show Current-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
 
 #show-buttons {
 	display: grid;
@@ -180,8 +180,8 @@ header {
 	margin: 0;
 	margin-top: 10px;
 }
-
-/*@@@@@@@@@*FORM*@@@@@@@@@@@*/
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-/Show Current-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*FORM*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
 
 #diary-post-form {
 	width: 700px;
@@ -190,8 +190,6 @@ header {
 	grid-template-columns: 50% 50%;
 	border: 2px solid black;
 	border-radius: 5px;
-	/* justify-content: center; */
-	/* background-color: rgb(168, 151, 131); */
 	background-image: url("images/note.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -291,8 +289,8 @@ header {
 	background-color: yellow;
 }
 
-/*@@@@@@@*@/FORM*@@@@@@@@@@@@@@@@@@
-/*@@@@@@@*UTSKRIFT AV POSTS*@@@@@@@*/
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*@/FORM*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*UTSKRIFT AV POSTS*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
 
 #diary-posts{
 	margin: 10px;
@@ -328,7 +326,6 @@ header {
 	display: flex;
 	justify-content: right;
 }
-
 #post-delete-edit a{
 	background-color: antiquewhite;
 	align-items: center;
@@ -348,26 +345,48 @@ header {
 #post-delete-edit a:hover{
 	background-color: yellow;
 }
-
-
-
-
-
-
-
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*POPUP*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
 .popup {
 	display: none;
 	position: fixed;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	padding: 20px;
-	background-color: #fff;
 	border: 1px solid #ccc;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-	z-index: 1000;
+	z-index: 2;
+	font-family: 'Annie Use Your Telescope';
+	border: 1px solid black;
+	background-color: white;
+	padding: 20px;
+	width: 400px;
+	text-align: center;
+	font-weight: bolder;
+	border-radius: 5px;
   }
-
+  .popup h1{
+	margin: 0;
+  }
+  #edit-text{
+	justify-self: center;
+	border: 2px solid black;
+	border-radius: 5px;
+	resize: none;
+	padding: 25px;
+	font-family: 'Annie Use Your Telescope';
+	font-size: 25px;
+	margin-top: 10px;
+  }
+  #edit-datetime {
+	font-family: 'Annie Use Your Telescope';
+	font-weight: bold;
+  }
+  #edit-title {
+	font-family: 'Annie Use Your Telescope';
+	font-weight: bold;
+	font-size: 25px;
+	margin-top: 15px;
+  }
   .overlay {
 	display: none;
 	position: fixed;
@@ -376,6 +395,6 @@ header {
 	width: 100%;
 	height: 100%;
 	background-color: rgba(0, 0, 0, 0.5);
-	z-index: 999;
+	z-index: 1;
   }
-
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@/*POPUP*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/

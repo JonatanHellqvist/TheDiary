@@ -47,7 +47,7 @@ public class DiaryController {
 		
 		List <Diary> diaryPosts = diaryRepository.findByDateTime(startDate, endDate);
 		model.addAttribute("diary", diaryPosts);
-		return "/index";
+		return "index";
 	}
 
 	@PostMapping("/new-post")
@@ -58,20 +58,19 @@ public class DiaryController {
 		diarypost.setTitle(title);
 		diarypost.setText(text);
 		diaryRepository.save(diarypost);
-
 		return "redirect:/";
 	}
 	
 	@GetMapping("/delete")
 	public String deletePost(@RequestParam int id) {
 		
-		System.out.println("Delete Mapping: " + id);
 		diaryRepository.deleteDiaryPost(id);
 		return "redirect:/";
 	}
 
 	@PostMapping("/edit-post")
 	public String editPost(@ModelAttribute Diary editedDiaryPost) {
+
 		diaryRepository.editDiaryPost(editedDiaryPost.getId(),editedDiaryPost.getTitle(),editedDiaryPost.getText(), editedDiaryPost.getDatetime());
 		return "redirect:/";
 	}
